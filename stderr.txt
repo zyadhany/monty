@@ -1,0 +1,30 @@
+==77562== Memcheck, a memory error detector
+==77562== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==77562== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==77562== Command: ./monty ./test/Saged.m
+==77562== 
+==77562== Conditional jump or move depends on uninitialised value(s)
+==77562==    at 0x48EB10B: getdelim (iogetdelim.c:59)
+==77562==    by 0x1093B0: get_input (in /home/user/Desktop/Alx Repo/monty/monty)
+==77562==    by 0x109475: get_Command (in /home/user/Desktop/Alx Repo/monty/monty)
+==77562==    by 0x1099E0: monty (in /home/user/Desktop/Alx Repo/monty/monty)
+==77562==    by 0x1099B4: main (in /home/user/Desktop/Alx Repo/monty/monty)
+==77562== 
+==77562== Conditional jump or move depends on uninitialised value(s)
+==77562==    at 0x48EB168: getdelim (iogetdelim.c:96)
+==77562==    by 0x1093B0: get_input (in /home/user/Desktop/Alx Repo/monty/monty)
+==77562==    by 0x109475: get_Command (in /home/user/Desktop/Alx Repo/monty/monty)
+==77562==    by 0x1099E0: monty (in /home/user/Desktop/Alx Repo/monty/monty)
+==77562==    by 0x1099B4: main (in /home/user/Desktop/Alx Repo/monty/monty)
+==77562== 
+L7: usage: push integer
+==77562== 
+==77562== HEAP SUMMARY:
+==77562==     in use at exit: 0 bytes in 0 blocks
+==77562==   total heap usage: 35 allocs, 35 frees, 5,088 bytes allocated
+==77562== 
+==77562== All heap blocks were freed -- no leaks are possible
+==77562== 
+==77562== Use --track-origins=yes to see where uninitialised values come from
+==77562== For lists of detected and suppressed errors, rerun with: -s
+==77562== ERROR SUMMARY: 12 errors from 2 contexts (suppressed: 0 from 0)

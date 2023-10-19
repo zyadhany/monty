@@ -99,7 +99,7 @@ struct INFO
 	stack_t *top;
 
 	int MODE;
-	int fn;
+	FILE *fn;
 	int exit;
 };
 
