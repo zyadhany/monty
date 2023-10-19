@@ -6,7 +6,7 @@
  * @line_number: current line. *
  * Return: 0 at sucess, -1 fail.
  */
-void swap(stack_t **stack, unsigned int line_number)
+void add(stack_t **stack, unsigned int line_number)
 {
 	info.command_count = line_number;
 	info.stack = *stack;
