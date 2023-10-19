@@ -6,20 +6,19 @@
  * @line_number: current line. *
  * Return: 0 at sucess, -1 fail.
  */
-void add(stack_t **stack, unsigned int line_number)
+void swap(stack_t **stack, unsigned int line_number)
 {
-	int n;
-
 	info.command_count = line_number;
-
-	n = _stoi(info.command[1]);
-	if (n == info.MODE)
-		CodeError("usage: push integer");
-
-	info.top = add_dnodeint_end(stack, n);
+	info.stack = *stack;
 
 	if (!info.top)
-		MalocError();
+		CodeError("can't add, stack too short");
+	if (!info.top->prev)
+		CodeError("can't add, stack too short");
+
+	info.top->prev->n += info.top->n;
+
+	pop(stack, line_number);
 }
 
 /**

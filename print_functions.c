@@ -7,7 +7,7 @@
  */
 int _putchar(char c)
 {
-	return (write(stdout, &c, 1));
+	return (write(STDOUT_FILENO, &c, 1));
 }
 
 /**
@@ -36,7 +36,7 @@ void _perror(char *str)
 	if (!str)
 		return;
 
-	write(stderr, str, _strlen(str));
+	write(STDERR_FILENO, str, _strlen(str));
 }
 
 /**
