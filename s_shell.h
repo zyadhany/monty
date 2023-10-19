@@ -9,43 +9,13 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
-#include <fcntl.h>
 
 /*Global variables*/
+extern char **environ;
 extern struct INFO info;
-
-
-/**
- * struct stack_s - doubly linked list representation of a stack (or queue)
- * @n: integer
- * @prev: points to the previous element of the stack (or queue)
- * @next: points to the next element of the stack (or queue)
- *
- * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO
- */
-typedef struct stack_s
-{
-		int n;
-		struct stack_s *prev;
-		struct stack_s *next;
-} stack_t;
-
-
-/**
- * struct instruction_s - opcode and its function
- * @opcode: the opcode
- * @f: function to handle the opcode
- *
- * Description: opcode and its function
- * for stack, queues, LIFO, FIFO
- */
-typedef struct instruction_s
-{
-		char *opcode;
-		void (*f)(stack_t **stack, unsigned int line_number);
-} instruction_t;
-
+#define PROMPT "s_shell$ "
+#define MODE 10000000000
+#define BUFFER_SIZE 1024
 
 /**
  * struct List - linked list of 2 strings
@@ -74,74 +44,112 @@ struct function
 
 
 /**
- * struct INFO - structure of command details.
- * @command_count: position of command entry.
- * @status: exit status.
- * @argc: argument count.
+ * struct INFO - structure of command details
+ * @command_count: position of command entry
+ * @STD: stdout or stderr
+ * @status: exit status
+ * @argc: argument count
  * @argv: name of the program.
- * @input: string entered by user.
+ * @parent_dir: pointer to parent directory
+ * @input: string entered by user 
  * @command: command entered.
- * @commands_To_run:  what to consider in the string.
- * @buffer_index: position specifier in buffer.
- * @BUFFER_SIZE: size of buffer.
- * @buffer: array of buffer strings.
- * @functions: pointer to functions.
- * @stack: stack we work at.
- * @MODE: max int value.
- * @fn: file take input from.
+ * @commands_To_run:  what to consider in the string
+ * @enviroment_changed: change in cli environment
+ * @environ: ennvironment variable
+ * @buffer_index: position specifier in buffer
+ * @buffer: array of buffer strings
+ * @functions: pointer to functions
+ * @envp: envp command
+ * @alias: assigned alias to a line of command
  * @exit: exit command
 */
 struct INFO
 {
 	u_int64_t command_count;
 	int status;
+	int STD;
 
 	int argc;
 	char **argv;
+
+	char *parent_dir;
 
 	char *input;
 	char **command;
 	char ***commands_To_run;
 
+	int enviroment_changed;
+	char **environ;
+
 	int buffer_index;
-	int BUFFER_SIZE;
 	char *buffer;
 
-	struct function functions[10];
+	struct function functions[7];
 
-	stack_t *stack;
+	list_t *envp;
+	list_t *alias;
 
-	int MODE;
-	int fn;
 	int exit;
 };
 
+
 /*Custom Functions*/
-int monty(void);
+int s_shell(void);
 int execute_Command(void);
+int Get_path(char **coma);
+int path_check(char **path, char *coma);
 
 /* Geting Command Functions*/
 int get_input(void);
+int check_comments(char **str);
+int break_command(void);
 int get_Command(void);
 
-/*monty Functions*/
+/*Shell Functions*/
 /*1*/
 int set_info(void);
 int set_fuction(void);
 int set_buffer(void);
+void command_error(char *error_massage[]);
 void FreeInfo(void);
-void _exitS(void);
 /*2*/
-void MalocError(void);
-void CodeError(char *str);
+int _getcwd(char **str);
+int _cd(void);
+int Buff_Flush(void);
+void _exitS(void);
+int _exitShell(void);
 /*3*/
-int push(void);
-int pall(void);
+void cd_error_massage(void);
+
+/* enviroment functions */
+/*1*/
+int set_envp(void);
+int _setenv(char *var, char *value);
+int _Mysetenv(void);
+int _unsetenv(char *var);
+int _Myunsetenv(void);
+/*2*/
+char **get_environ(void);
+char *env_val(char *str);
+int _getEnvp(char *var);
+int _envp(void);
+/*3*/
+char *get_env_val(char *var);
+int _strcnt_env(char *str);
+char **_strtok_env(char *str);
+int separate_to_enviroment(char ***args, char *str);
+int replace_to_env(char **str);
+
+/*alias Functions*/
+void put_alias(list_t *alias_element);
+int print_alias(void);
+int alias_read(char *var);
+int alias_write(char *elem);
+int alias_shell(void);
 
 /*Print functions*/
 int _putchar(char c);
 void _puts(char *str);
-void _perror(char *str);
 void print_int(int n);
 int _getline(char **lineptr, int *len, int fd);
 
@@ -182,5 +190,6 @@ int _sstrlen(char **str);
 char *_strSuffix(char *str, int index);
 int _strassemb(char **str, char **s);
 void free_2d_String(char ***str);
+
 
 #endif

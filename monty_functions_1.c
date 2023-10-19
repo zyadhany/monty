@@ -12,13 +12,15 @@ int set_info(void)
 {
 	int stats = 0;
 
+	info.stack;
 	info.command_count = 1;
 	info.exit = 0;
-	info.argc = info.buffer_index = 0;
+	info.fn = info.argc = info.buffer_index = 0;
 	info.status = EXIT_FAILURE;
 	info.argv = info.command = NULL;
 	info.commands_To_run = NULL;
 	info.input = info.buffer = NULL;
+	info.stack = NULL;
 
 	stats += set_fuction();
 	stats += set_buffer();
@@ -71,7 +73,7 @@ int set_buffer(void)
  */
 void FreeInfo(void)
 {
-	fclose(info.fn);
+	close(info.fn);
 	free(info.input);
 	free(info.buffer);
 	freeString(info.command);
