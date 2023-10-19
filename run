@@ -1,2 +1,2 @@
 gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
-valgrind ./monty Saged.m
+./monty Saged.m

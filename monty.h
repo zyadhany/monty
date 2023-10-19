@@ -12,6 +12,7 @@
 #include <fcntl.h>
 
 /*Global variables*/
+extern struct INFO info;
 
 
 /**
@@ -73,17 +74,19 @@ struct function
 
 
 /**
- * struct INFO - structure of command details
- * @command_count: position of command entry
- * @status: exit status
- * @argc: argument count
+ * struct INFO - structure of command details.
+ * @command_count: position of command entry.
+ * @status: exit status.
+ * @argc: argument count.
  * @argv: name of the program.
- * @input: string entered by user
+ * @input: string entered by user.
  * @command: command entered.
- * @commands_To_run:  what to consider in the string
- * @buffer_index: position specifier in buffer
- * @buffer: array of buffer strings
- * @functions: pointer to functions
+ * @commands_To_run:  what to consider in the string.
+ * @buffer_index: position specifier in buffer.
+ * @BUFFER_SIZE: size of buffer.
+ * @buffer: array of buffer strings.
+ * @functions: pointer to functions.
+ * @MODE: max int value.
  * @fn: file take input from.
  * @exit: exit command
 */
