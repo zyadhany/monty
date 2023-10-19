@@ -21,9 +21,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 
 	if (err)
-	{
-		CodeError("usage: push integer\n");
-	}
+		CodeError("usage: push integer");
 
 	add_dnodeint_end(stack, n);
 }
