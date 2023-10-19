@@ -14,7 +14,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	n = _stoi(info.command[1]);
 	if (n == info.MODE)
-		CodeError("usage: push integer");	
+		CodeError("usage: push integer");
 
 	if (!add_dnodeint_end(stack, n))
 		MalocError();
