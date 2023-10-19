@@ -26,8 +26,14 @@ int _isInt(char *s)
  */
 char *int_to_string(int n)
 {
-	int i;
+	int i, mun = 0;
 	static char s[32];
+
+	if (n < 0)
+	{
+		mun = 1;
+		n *= -1;
+	}
 
 	if (n == 0)
 	{
@@ -41,6 +47,9 @@ char *int_to_string(int n)
 			n /= 10;
 		}
 	}
+
+	if (mun)
+		s[i++] = '-';
 
 	s[i] = '\0';
 
