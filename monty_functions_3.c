@@ -5,10 +5,12 @@
  *
  * Return: 0 at sucess, -1 fail.
  */
-int push(void)
+void push(stack_t **stack, unsigned int line_number)
 {
-
-	return (0);
+	if (!stack || !line_number)
+	{
+		return;
+	}
 }
 
 /**
@@ -16,10 +18,12 @@ int push(void)
  *
  * Return: 0 at sucess, -1 fail.
  */
-int pall(void)
+void pall(stack_t **stack, unsigned int line_number)
 {
-	_puts("pall\n");
+	if (!stack || !line_number)
+	{
+		return;
+	}
+	
 
-
-	return (0);
 }
