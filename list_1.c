@@ -1,71 +1,80 @@
 #include "monty.h"
 
-/**
- * print_list - prints a list
- * @lis: given list
- * Return: size of list
- */
-size_t print_list(const list_t *lis)
-{
-	int n = 0;
 
-	while (lis)
+/**
+ * print_dlistint - prints all the elements of list
+ * @h: given list
+ *
+ * Return: numper of element in list
+ */
+size_t print_dlistint(const stack_t *h)
+{
+	size_t n = 0;
+
+	while (h)
 	{
-		_puts(lis->str);
+		print_int(h->n);
 		_putchar('\n');
 		n++;
-		lis = lis->next;
+		h = h->next;
 	}
 
 	return (n);
 }
 
 /**
- * list_len - gets the length of a given list
- * @lis: given list
- * Return: size of list
+ * print_dlistint - prints all the elements of list
+ * @h: given list
+ *
+ * Return: numper of element in list
  */
-size_t list_len(const list_t *lis)
+size_t print_end_dlistint(const stack_t *h)
 {
-	int n = 0;
+	size_t n = 0;
 
-	while (lis)
+	if (h)
+		while (h->next)
+			h = h->next;
+
+	while (h)
 	{
+		print_int(h->n);
+		_putchar('\n');
 		n++;
-		lis = lis->next;
+		h = h->prev;
 	}
 
 	return (n);
 }
 
 /**
- * add_node - adds a new node to a given list
- * @lis: given list
- * @s: added string from new node
+ * add_dnodeint_end - check the code
+ * @head: given list
+ * @n: added element
+ *
  * Return: pointer to list
  */
-list_t *add_node(list_t **lis, char *s)
+stack_t *add_dnodeint_end(stack_t **head, const int n)
 {
-	list_t *tmp = malloc(sizeof(list_t)), *at = *lis;
+	stack_t *tmp, *at = NULL;
+
+	if (!head)
+		return (NULL);
+
+	tmp = malloc(sizeof(stack_t));
 
 	if (!tmp)
 		return (NULL);
 
-	tmp->str = NULL;
-	tmp->str2 = NULL;
-	_strcpy(&tmp->str, s);
+	tmp->n = n;
 	tmp->next = NULL;
+	tmp->prev = NULL;
 
-	if (tmp->str == NULL)
+	at = *head;
+	if (!*head)
 	{
-		free(tmp);
-		return (NULL);
-	}
-
-	if (!*lis)
-	{
-		*lis = tmp;
-		return (*lis);
+		*head = tmp;
+		return (*head);
 	}
 
 	while (at->next)
@@ -74,67 +83,23 @@ list_t *add_node(list_t **lis, char *s)
 	}
 
 	at->next = tmp;
+	tmp->prev = at;
 
-	return (*lis);
+	return (*head);
 }
 
 /**
- * delete_node_at_index - deletes node
- * at a specified index in list
- * @lis: given list
- * @k: index of list
- * Return: pointer to list
+ * free_dlistint - check the code
+ * @head: given list
+ *
+ * Return: free all element of list
  */
-int delete_node_at_index(list_t **lis, int k)
+
+void free_dlistint(stack_t *head)
 {
-	int i = 0;
-	list_t *X = *lis, *tmp;
-
-	if (k == 0)
+	if (head)
 	{
-		if (!X)
-			return (-1);
-		tmp = X->next;
-		free(X->str);
-		free(X->str2);
-		free(X);
-		*lis = tmp;
-		return (1);
-	}
-
-	for (i = 0; i < k - 1; i++)
-	{
-		if (!X)
-			return (-1);
-		X = X->next;
-	}
-
-	if (!X)
-		return (-1);
-	if (!X->next)
-		return (-1);
-
-	tmp = X->next->next;
-	free(X->next->str);
-	free(X->next->str2);
-	free(X->next);
-	X->next = tmp;
-
-	return (1);
-}
-
-/**
- * free_list - frees a specified list
- * @lis: given list
- */
-void free_list(list_t *lis)
-{
-	if (lis)
-	{
-		free_list(lis->next);
-		free(lis->str);
-		free(lis->str2);
-		free(lis);
+		free_dlistint(head->next);
+		free(head);
 	}
 }
-

@@ -78,6 +78,7 @@ void FreeInfo(void)
 	close(info.fn);
 	free(info.input);
 	free(info.buffer);
+	free_dlistint(info.stack);
 	freeString(info.command);
 }
 

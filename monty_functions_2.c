@@ -22,7 +22,7 @@ void CodeError(char *str)
 {
 	_perror("L");
 	_perror(int_to_string(info.command_count));
-	_perror(" ");
+	_perror(": ");
 	_perror(str);
 	_perror("\n");
 	info.exit = EXIT_FAILURE;

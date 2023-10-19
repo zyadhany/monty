@@ -131,19 +131,12 @@ void _perror(char *str);
 void print_int(int n);
 int _getline(char **lineptr, int *len, int fd);
 
-/* List Functions */
+/*List Functions */
 /*1*/
-size_t print_list(const list_t *lis);
-size_t list_len(const list_t *lis);
-list_t *add_node(list_t **lis, char *str);
-int delete_node_at_index(list_t **lis, int k);
-void free_list(list_t *lis);
-/*2*/
-char **list_to_strings(list_t *lis);
-list_t *add_node2(list_t **lis, char *str1, char *str2);
-list_t *get_node_elem(list_t *lis, char *str);
-int get_node_index(list_t *lis, char *str);
-char *get_node(list_t *lis, int k);
+size_t print_dlistint(const stack_t *h);
+size_t print_end_dlistint(const stack_t *h);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+void free_dlistint(stack_t *head);
 
 /* Integer Functons */
 int _isInt(char *s);
