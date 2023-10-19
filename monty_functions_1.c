@@ -68,9 +68,7 @@ void FreeInfo(void)
 	close(info.fn);
 	free(info.input);
 	free(info.buffer);
-	free_2d_String(info.commands_To_run);
-	if (!info.exit)
-		freeString(info.command);
+	freeString(info.command);
 }
 
 /**
