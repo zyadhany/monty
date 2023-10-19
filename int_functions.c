@@ -53,12 +53,25 @@ char *int_to_string(int n)
  * @s: string to convert
  * Return: int represent string after convert.
  */
-u_int64_t _stoi(char *s)
+int64_t _stoi(char *s)
 {
-	u_int64_t n = 0, i;
+	int64_t n = 0, prio = 1, i;
+
+	if (!s)
+		return (info.MODE);
+
+	if (s[0] == '-')
+	{
+		prio = -1;
+		s++;
+	}
 
 	for (i = 0; s[i] ; i++)
+	{
+		if (s[i] < '0' || '9' < s[i])
+			return (info.MODE);
 		n = (n * 10 + s[i] - '0') % info.MODE;
+	}
 
-	return (n);
+	return (n * prio);
 }

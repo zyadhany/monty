@@ -141,7 +141,7 @@ void free_dlistint(stack_t *head);
 /* Integer Functons */
 int _isInt(char *s);
 char *int_to_string(int n);
-u_int64_t _stoi(char *s);
+int64_t _stoi(char *s);
 
 /*String Functions*/
 /*1*/

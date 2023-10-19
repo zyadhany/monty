@@ -8,19 +8,13 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	int n, i, err = 0;
+	int n, err = 0;
 
 	info.command_count = line_number;
 
-	if (!info.command[1])
+	n = _stoi(info.command[1]);
+	if (n == info.MODE)
 		err = 1;
-	else
-	{
-		for (i = (info.command[1][0] == '-'); info.command[1][i]; i++)
-			if (info.command[1][i] < '0' || info.command[1][i] > '9')
-				err = 1;
-		n = atoi(info.command[1]);
-	}
 
 	if (err)
 		CodeError("usage: push integer");
