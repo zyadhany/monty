@@ -72,6 +72,7 @@ typedef struct List
  * @buffer: array of buffer strings.
  * @functions: pointer to functions.
  * @stack: stack we work at.
+ * @top: top elem of stack.
  * @MODE: max int value.
  * @fn: file take input from.
  * @exit: exit command
@@ -95,6 +96,7 @@ struct INFO
 	instruction_t functions[10];
 
 	stack_t *stack;
+	stack_t *top;
 
 	int MODE;
 	int fn;

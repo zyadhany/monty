@@ -16,7 +16,9 @@ void push(stack_t **stack, unsigned int line_number)
 	if (n == info.MODE)
 		CodeError("usage: push integer");
 
-	if (!add_dnodeint_end(stack, n))
+	info.top = add_dnodeint_end(stack, n);
+
+	if (!info.top)
 		MalocError();
 }
 
@@ -30,8 +32,9 @@ void push(stack_t **stack, unsigned int line_number)
 void pall(stack_t **stack, unsigned int line_number)
 {
 	info.command_count = line_number;
+	info.stack = *stack;	
 
-	print_end_dlistint(*stack);
+	print_end_dlistint(info.top);
 }
 
 /**

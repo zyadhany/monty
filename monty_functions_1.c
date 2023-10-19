@@ -19,7 +19,7 @@ int set_info(void)
 	info.argv = info.command = NULL;
 	info.commands_To_run = NULL;
 	info.input = info.buffer = NULL;
-	info.stack = NULL;
+	info.stack = info.top = NULL;
 	info.MODE = 1215752192;
 
 	stats += set_fuction();
