@@ -5,7 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <signal.h>
 #include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/wait.h>
 #include <fcntl.h>
 
 /*Global variables*/
@@ -59,6 +62,18 @@ typedef struct List
 
 
 /**
+ * struct function - structure of a function pointer
+ * @name: function name
+ * @func: pointer to function with void argument
+*/
+struct function
+{
+	char *name;
+	int (*func)(void);
+};
+
+
+/**
  * struct INFO - structure of command details.
  * @command_count: position of command entry.
  * @status: exit status.
@@ -92,7 +107,7 @@ struct INFO
 	int BUFFER_SIZE;
 	char *buffer;
 
-	instruction_t functions[10];
+	struct function functions[10];
 
 	stack_t *stack;
 
@@ -120,9 +135,9 @@ void _exitS(void);
 void MalocError(void);
 void CodeError(char *str);
 /*3*/
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
+int push(void);
+int pall(void);
+int pint(void);
 
 /*Print functions*/
 int _putchar(char c);
