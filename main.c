@@ -9,7 +9,10 @@
  */
 int main(int argc, char *argv[])
 {
+	stack_t *stack = NULL;
+
 	set_info();
+	info.stack = stack;
 	info.argv = argv;
 	info.argc = argc;
 
