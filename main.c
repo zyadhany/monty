@@ -33,8 +33,8 @@ int main(int argc, char *argv[])
 	}
 
 	do {
-		monty();
 		info.command_count++;
+		monty();
 	} while (1);
 
 	return (0);
