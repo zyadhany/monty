@@ -47,4 +47,26 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	info.stack = *stack;
 	info.command_count = line_number;
+
+	if (!info.top)
+		CodeError("can't pint, stack empty");
+	
+	print_int(info.top->n);
+	_putchar('\n');
+}
+
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+	
+	info.command_count = line_number;
+	info.stack = *stack;	
+
+	if (!info.top)
+		CodeError("can't pop an empty stack");
+
+	tmp = info.top;
+	info.top = info.top->prev;
+
+	rem_node(tmp);
 }

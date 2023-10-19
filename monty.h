@@ -125,6 +125,7 @@ void CodeError(char *str);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 
 /*Print functions*/
 int _putchar(char c);
@@ -138,6 +139,7 @@ int _getline(char **lineptr, int *len, int fd);
 size_t print_dlistint(const stack_t *h);
 size_t print_end_dlistint(const stack_t *h);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
+void rem_node(stack_t *head);
 void free_dlistint(stack_t *head);
 
 /* Integer Functons */

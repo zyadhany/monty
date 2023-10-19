@@ -1,4 +1,6 @@
 push 123
-push 1
-push -010
-pall das
+push 12
+pint
+pall
+pop
+pall

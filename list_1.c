@@ -85,7 +85,27 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 	at->next = tmp;
 	tmp->prev = at;
 
-	return (*head);
+	return (tmp);
+}
+
+/**
+ * rem_node - check the code
+ * @head: given list
+ *
+ * Return: free element of list
+ */
+void rem_node(stack_t *head)
+{
+	if (!head)
+		return;
+	
+	if (head->prev)
+		head->prev->next = head->next;
+
+	if (head->next)
+		head->next->prev = head->prev;
+
+	free(head);
 }
 
 /**
