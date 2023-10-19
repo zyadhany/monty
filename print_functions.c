@@ -75,13 +75,10 @@ int _getline(char **lineptr, int *len, int fd)
 			break;
 		if (bytesRead == -1)
 			return (-1);
-
 		info.buffer_index++;
 		n++;
-
 		if (c == '\n' || c == -1)
 			break;
-
 		if (c == prev && c == ' ')
 			info.buffer_index--;
 		prev = c;
