@@ -16,6 +16,8 @@ int main(int argc, char *argv[])
 	info.argv = argv;
 	info.argc = argc;
 
+	signal(SIGINT, SIG_IGN);
+
 	if (argc != 2)
 	{
 		_perror("USAGE: monty file\n");

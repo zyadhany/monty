@@ -5,35 +5,38 @@
  *
  * Return: 0 at sucess, -1 fail.
  */
-int push(void)
+void push(stack_t **stack, unsigned int line_number)
 {
-
-	return (0);
+	if (!stack || !line_number)
+	{
+		return;
+	}
 }
 
 /**
  * push - print all element of stack
  *
- * Return: 0 at sucess, -1 fail.
+ * Return: No thing.
  */
-int pall(void)
+void pall(stack_t **stack, unsigned int line_number)
 {
-	_puts("pall\n");
-
-
-	return (0);
+	if (!stack || !line_number)
+	{
+		return;
+	}
 }
-
 
 /**
  * pint - print last element of stack
  *
- * Return: 0 at sucess, -1 fail.
+ * Return: No thing.
  */
-int pint(void)
+void pint(stack_t **stack, unsigned int line_number)
 {
 	print_int(2);
 	_putchar('\n');
-
-	return (0);
+	if (!stack || !line_number)
+	{
+		return;
+	}
 }
