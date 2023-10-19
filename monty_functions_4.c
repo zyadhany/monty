@@ -33,9 +33,9 @@ void _sub(stack_t **stack, unsigned int line_number)
 	info.stack = *stack;
 
 	if (!info.top)
-		CodeError("can't add, stack too short");
+		CodeError("can't sub, stack too short");
 	if (!info.top->prev)
-		CodeError("can't add, stack too short");
+		CodeError("can't sub, stack too short");
 
 	info.top->prev->n -= info.top->n;
 
@@ -54,9 +54,11 @@ void _div(stack_t **stack, unsigned int line_number)
 	info.stack = *stack;
 
 	if (!info.top)
-		CodeError("can't add, stack too short");
+		CodeError("can't div, stack too short");
 	if (!info.top->prev)
-		CodeError("can't add, stack too short");
+		CodeError("can't div, stack too short");
+	if (!info.top->n)
+		CodeError("division by zero");
 
 	info.top->prev->n /= info.top->n;
 
@@ -75,9 +77,9 @@ void _mul(stack_t **stack, unsigned int line_number)
 	info.stack = *stack;
 
 	if (!info.top)
-		CodeError("can't add, stack too short");
+		CodeError("can't mul, stack too short");
 	if (!info.top->prev)
-		CodeError("can't add, stack too short");
+		CodeError("can't mul, stack too short");
 
 	info.top->prev->n *= info.top->n;
 
@@ -96,9 +98,11 @@ void _mod(stack_t **stack, unsigned int line_number)
 	info.stack = *stack;
 
 	if (!info.top)
-		CodeError("can't add, stack too short");
+		CodeError("can't mod, stack too short");
 	if (!info.top->prev)
-		CodeError("can't add, stack too short");
+		CodeError("can't mod, stack too short");
+	if (!info.top->n)
+		CodeError("division by zero");
 
 	info.top->prev->n %= info.top->n;
 
