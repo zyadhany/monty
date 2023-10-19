@@ -8,16 +8,13 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	int n, err = 0;
+	int n;
 
 	info.command_count = line_number;
 
 	n = _stoi(info.command[1]);
 	if (n == info.MODE)
-		err = 1;
-
-	if (err)
-		CodeError("usage: push integer");
+		CodeError("usage: push integer");	
 
 	if (!add_dnodeint_end(stack, n))
 		MalocError();
@@ -33,7 +30,6 @@ void push(stack_t **stack, unsigned int line_number)
 void pall(stack_t **stack, unsigned int line_number)
 {
 	info.command_count = line_number;
-
 
 	print_end_dlistint(*stack);
 }

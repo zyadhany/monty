@@ -8,7 +8,7 @@
 void MalocError(void)
 {
 	_perror("Error: malloc failed\n");
-	info.exit = EXIT_FAILURE;
+	info.status = EXIT_FAILURE;
 	_exitS();
 }
 
@@ -25,6 +25,6 @@ void CodeError(char *str)
 	_perror(": ");
 	_perror(str);
 	_perror("\n");
-	info.exit = EXIT_FAILURE;
+	info.status = EXIT_FAILURE;
 	_exitS();
 }
