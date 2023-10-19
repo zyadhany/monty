@@ -32,7 +32,7 @@ void push(stack_t **stack, unsigned int line_number)
 void pall(stack_t **stack, unsigned int line_number)
 {
 	info.command_count = line_number;
-	info.stack = *stack;	
+	info.stack = *stack;
 
 	print_end_dlistint(info.top);
 }
@@ -50,7 +50,7 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	if (!info.top)
 		CodeError("can't pint, stack empty");
-	
+
 	print_int(info.top->n);
 	_putchar('\n');
 }
@@ -64,9 +64,9 @@ void pint(stack_t **stack, unsigned int line_number)
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
-	
+
 	info.command_count = line_number;
-	info.stack = *stack;	
+	info.stack = *stack;
 
 	if (!info.top)
 		CodeError("can't pop an empty stack");

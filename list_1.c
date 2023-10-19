@@ -98,7 +98,7 @@ void rem_node(stack_t *head)
 {
 	if (!head)
 		return;
-	
+
 	if (head->prev)
 		head->prev->next = head->next;
 
