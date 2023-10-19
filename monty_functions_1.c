@@ -12,7 +12,6 @@ int set_info(void)
 {
 	int stats = 0;
 
-	info.stack;
 	info.command_count = 1;
 	info.exit = 0;
 	info.fn = info.argc = info.buffer_index = 0;
