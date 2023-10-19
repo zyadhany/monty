@@ -79,7 +79,7 @@ int64_t _stoi(char *s)
 	{
 		if (s[i] < '0' || '9' < s[i])
 			return (info.MODE);
-		n = (n * 10 + s[i] - '0') % info.MODE;
+		n = n * 10 + s[i] - '0';
 	}
 
 	return (n * prio);

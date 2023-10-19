@@ -9,6 +9,6 @@ pint
 pop
 pall
 pop
-push 1
+push 1f
 pint
 pop
