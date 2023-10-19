@@ -125,6 +125,7 @@ void CodeError(char *str);
 /*3*/
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 
 /*Print functions*/
 int _putchar(char c);

@@ -43,8 +43,11 @@ int set_fuction(void)
 	info.functions[1].opcode = "pall";
 	info.functions[1].f = &pall;
 
-	info.functions[2].opcode = NULL;
-	info.functions[2].f = NULL;
+	info.functions[2].opcode = "pint";
+	info.functions[2].f = &pint;
+
+	info.functions[3].opcode = NULL;
+	info.functions[3].f = NULL;
 
 	return (0);
 }
