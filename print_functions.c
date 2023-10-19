@@ -82,7 +82,7 @@ int _getline(char **lineptr, int *len, int fd)
 		if (c == '\n' || c == -1)
 			break;
 
-		if (info.buffer_index == BUFFER_SIZE)
+		if (info.buffer_index == info.BUFFER_SIZE)
 		{
 			_appendStr(lineptr, info.buffer);
 			info.buffer_index = 0;

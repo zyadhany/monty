@@ -55,12 +55,12 @@ int set_fuction(void)
  */
 int set_buffer(void)
 {
-	info.buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	info.buffer = malloc(sizeof(char) * (info.BUFFER_SIZE + 1));
 
 	if (!info.buffer)
 		MalocError();
 
-	info.buffer[BUFFER_SIZE] = '\0';
+	info.buffer[info.BUFFER_SIZE] = '\0';
 
 	return (0);
 }

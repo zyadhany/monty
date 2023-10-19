@@ -58,7 +58,7 @@ u_int64_t _stoi(char *s)
 	u_int64_t n = 0, i;
 
 	for (i = 0; s[i] ; i++)
-		n = (n * 10 + s[i] - '0') % MODE;
+		n = (n * 10 + s[i] - '0') % info.MODE;
 
 	return (n);
 }

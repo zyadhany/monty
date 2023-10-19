@@ -8,7 +8,6 @@
 int push(void)
 {
 
-
 	return (0);
 }
 

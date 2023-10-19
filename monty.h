@@ -13,8 +13,6 @@
 
 /*Global variables*/
 extern struct INFO info;
-#define MODE 10000000000
-#define BUFFER_SIZE 1024
 
 
 /**
@@ -103,10 +101,12 @@ struct INFO
 	char ***commands_To_run;
 
 	int buffer_index;
+	int BUFFER_SIZE;
 	char *buffer;
 
 	struct function functions[10];
 
+	int MODE;
 	int fn;
 	int exit;
 };
