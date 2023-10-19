@@ -73,6 +73,9 @@ void _appendStr(char **str1, char *str2)
 	m = _strlen(str2);
 	s = malloc(sizeof(char) * (n + m + 1));
 
+	if (!s)
+		MalocError();
+
 	for (i = 0; i < n; i++)
 		s[i] = (*str1)[i];
 

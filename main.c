@@ -23,13 +23,18 @@ int main(int argc, char *argv[])
 
 	info.fn = open(argv[1], O_RDONLY);
 
-	if (info.fn == -1) {
-        _perror("Error: Can't open file ");
-        _perror(argv[1]);
-        _perror("\n");
+	if (info.fn == -1)
+	{
+		_perror("Error: Can't open file ");
+		_perror(argv[1]);
+		_perror("\n");
 		_exitS();
-    }
+	}
 
-	FreeInfo();
+	do {
+		monty();
+		info.command_count++;
+	} while (1);
+
 	return (0);
 }

@@ -11,3 +11,20 @@ void MalocError(void)
 	info.exit = EXIT_FAILURE;
 	_exitS();
 }
+
+/**
+ * CodeError - exit with erorr massage if got error in code.
+ * @str: error to print.
+ *
+ * Return: Nothing.
+ */
+void CodeError(char *str)
+{
+	_perror("L");
+	_perror(int_to_string(info.command_count));
+	_perror(" ");
+	_perror(str);
+	_perror("\n");
+	info.exit = EXIT_FAILURE;
+	_exitS();
+}
