@@ -36,8 +36,14 @@ int set_info(void)
  */
 int set_fuction(void)
 {
-	info.functions[0].name = NULL;
-	info.functions[0].func = NULL;
+	info.functions[0].name = "push";
+	info.functions[0].func = &push;
+
+	info.functions[1].name = "pall";
+	info.functions[1].func = &pall;
+
+	info.functions[2].name = NULL;
+	info.functions[2].func = NULL;
 
 	return (0);
 }

@@ -12,9 +12,7 @@
 #include <fcntl.h>
 
 /*Global variables*/
-extern char **environ;
 extern struct INFO info;
-#define PROMPT "s_shell$ "
 #define MODE 10000000000
 #define BUFFER_SIZE 1024
 
@@ -107,7 +105,7 @@ struct INFO
 	int buffer_index;
 	char *buffer;
 
-	struct function functions[1];
+	struct function functions[10];
 
 	int fn;
 	int exit;
@@ -131,6 +129,9 @@ void _exitS(void);
 /*2*/
 void MalocError(void);
 void CodeError(char *str);
+/*3*/
+int push(void);
+int pall(void);
 
 /*Print functions*/
 int _putchar(char c);
