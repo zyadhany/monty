@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 		_exitS();
 	}
 
+	info.status = 0;
 	do {
 		monty();
 		info.command_count++;
