@@ -76,3 +76,27 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	rem_node(tmp);
 }
+
+/**
+ * swap - swap last two elements of stack
+ * @stack: given stack.
+ * @line_number: current line. *
+ * Return: No thing.
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	int *tmp;
+
+	info.command_count = line_number;
+	info.stack = *stack;
+
+	if (!info.top)
+		CodeError("can't swap, stack too short");
+	if (!info.top->prev)
+		CodeError("can't swap, stack too short");
+
+	tmp = info.top->n;
+	info.top->n = info.top->prev->n;
+	info.top->prev->n = tmp;
+}
+
