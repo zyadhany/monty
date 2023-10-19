@@ -14,7 +14,7 @@ int set_info(void)
 
 	info.command_count = 1;
 	info.exit = 0;
-	info.fn = info.argc = info.buffer_index = 0;
+	info.argc = info.buffer_index = 0;
 	info.status = EXIT_FAILURE;
 	info.argv = info.command = NULL;
 	info.commands_To_run = NULL;
@@ -71,7 +71,7 @@ int set_buffer(void)
  */
 void FreeInfo(void)
 {
-	close(info.fn);
+	fclose(info.fn);
 	free(info.input);
 	free(info.buffer);
 	freeString(info.command);

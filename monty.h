@@ -109,7 +109,7 @@ struct INFO
 	struct function functions[10];
 
 	int MODE;
-	int fn;
+	FILE *fn;
 	int exit;
 };
 

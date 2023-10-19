@@ -1,4 +1,6 @@
 #include "monty.h"
+#include <stdlib.h>
+#include <stdio.h> 
 
 /**
  * get_input - gets input from user
@@ -6,9 +8,10 @@
  */
 int get_input(void)
 {
-	int n, len;
+	int n = -1;
+	size_t len;
 
-	n = _getline(&info.input, &len, info.fn);
+	n = getline(&info.input, &len, info.fn);
 
 	if (n == -1)
 		_exitS();
