@@ -55,6 +55,12 @@ void pint(stack_t **stack, unsigned int line_number)
 	_putchar('\n');
 }
 
+/**
+ * pop - pop last element of stack
+ * @stack: given stack.
+ * @line_number: current line. *
+ * Return: No thing.
+ */
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
