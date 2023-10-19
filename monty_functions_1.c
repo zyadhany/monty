@@ -53,14 +53,26 @@ int set_fuction(void)
 	info.functions[4].opcode = "swap";
 	info.functions[4].f = &swap;
 
-	info.functions[5].opcode = "add";
-	info.functions[5].f = &add;
+	info.functions[5].opcode = "nop";
+	info.functions[5].f = &nop;
 
-	info.functions[6].opcode = "nop";
-	info.functions[6].f = &nop;
+	info.functions[6].opcode = "add";
+	info.functions[6].f = &_add;
 
-	info.functions[7].opcode = NULL;
-	info.functions[7].f = NULL;
+	info.functions[7].opcode = "sub";
+	info.functions[7].f = &_sub;
+
+	info.functions[8].opcode = "div";
+	info.functions[8].f = &_div;
+
+	info.functions[9].opcode = "mul";
+	info.functions[9].f = &_mul;
+
+	info.functions[10].opcode = "mod";
+	info.functions[10].f = &_mod;
+
+	info.functions[11].opcode = NULL;
+	info.functions[11].f = NULL;
 	return (0);
 }
 

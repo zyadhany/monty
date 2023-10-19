@@ -93,7 +93,7 @@ struct INFO
 	int BUFFER_SIZE;
 	char *buffer;
 
-	instruction_t functions[10];
+	instruction_t functions[20];
 
 	stack_t *stack;
 	stack_t *top;
@@ -128,7 +128,12 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 /*4*/
-void add(stack_t **stack, unsigned int line_number);
+void _add(stack_t **stack, unsigned int line_number);
+void _sub(stack_t **stack, unsigned int line_number);
+void _div(stack_t **stack, unsigned int line_number);
+void _mod(stack_t **stack, unsigned int line_number);
+void _mul(stack_t **stack, unsigned int line_number);
+/*5*/
 void nop(stack_t **stack, unsigned int line_number);
 
 /*Print functions*/
