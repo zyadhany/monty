@@ -53,9 +53,14 @@ int set_fuction(void)
 	info.functions[4].opcode = "swap";
 	info.functions[4].f = &swap;
 
-	info.functions[5].opcode = NULL;
-	info.functions[5].f = NULL;
+	info.functions[5].opcode = "add";
+	info.functions[5].f = &add;
 
+	info.functions[6].opcode = "nop";
+	info.functions[6].f = &nop;
+
+	info.functions[7].opcode = NULL;
+	info.functions[7].f = NULL;
 	return (0);
 }
 
