@@ -9,7 +9,6 @@
 int monty(void)
 {
 	info.command = NULL;
-	info.commands_To_run = NULL;
 
 	get_Command();
 

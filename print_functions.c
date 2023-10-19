@@ -58,7 +58,7 @@ void print_int(int n)
 int _getline(char **lineptr, int *len, int fd)
 {
 	int n = 0, bytesRead = 0;
-	char c;
+	char c, prev = '#';
 
 	if (!lineptr || !len || fd < 0)
 		return (-1);
@@ -82,6 +82,9 @@ int _getline(char **lineptr, int *len, int fd)
 		if (c == '\n' || c == -1)
 			break;
 
+		if (c == prev && c == ' ')
+			info.buffer_index--;
+		prev = c;
 		if (info.buffer_index == info.BUFFER_SIZE)
 		{
 			_appendStr(lineptr, info.buffer);
