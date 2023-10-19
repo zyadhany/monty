@@ -23,7 +23,7 @@ size_t print_dlistint(const stack_t *h)
 }
 
 /**
- * print_dlistint - prints all the elements of list
+ * print_end_dlistint - prints all the elements of list
  * @h: given list
  *
  * Return: numper of element in list

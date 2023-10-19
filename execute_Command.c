@@ -10,7 +10,8 @@ int execute_Command(void)
 	unsigned int i;
 
 	for (i = 0; info.functions[i].opcode; i++)
-		if (_strcomp(info.command[0], info.functions[i].opcode) == 0){
+		if (_strcomp(info.command[0], info.functions[i].opcode) == 0)
+		{
 			info.functions[i].f(&info.stack, info.command_count);
 			return (0);
 		}
