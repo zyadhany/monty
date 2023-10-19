@@ -12,7 +12,6 @@
 #include <fcntl.h>
 
 /*Global variables*/
-extern struct INFO info;
 
 
 /**

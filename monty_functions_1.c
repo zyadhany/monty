@@ -1,7 +1,6 @@
 #include "monty.h"
 
 int set_info(void);
-struct INFO info;
 
 /**
  * set_info - set up info.
