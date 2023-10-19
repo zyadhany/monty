@@ -8,7 +8,7 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	int n, err = 0;
+	int n, i, err = 0;
 
 	info.command_count = line_number;
 
@@ -16,9 +16,10 @@ void push(stack_t **stack, unsigned int line_number)
 		err = 1;
 	else
 	{
+		for (i = (info.command[1][0] == '-'); info.command[1][i]; i++)
+			if (info.command[1][i] < '0' || info.command[1][i] > '9')
+				err = 1;
 		n = atoi(info.command[1]);
-		if (n == 0 && (_strlen(info.command[1]) != 1 || info.command[1][0] != '0'))
-			err = 1;
 	}
 
 	if (err)
