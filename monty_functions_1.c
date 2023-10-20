@@ -14,14 +14,13 @@ int set_info(void)
 
 	info.command_count = 1;
 	info.exit = 0;
-	info.argc = info.buffer_index = 0;
+	info.fn = info.argc = info.buffer_index = 0;
 	info.status = EXIT_FAILURE;
 	info.argv = info.command = NULL;
 	info.commands_To_run = NULL;
 	info.input = info.buffer = NULL;
 	info.stack = info.top = NULL;
-	info.MODE = 175443913;
-	info.fn = NULL; 
+	info.MODE = 15443913;
 
 	stats += set_fuction();
 	stats += set_buffer();
@@ -100,7 +99,7 @@ int set_buffer(void)
  */
 void FreeInfo(void)
 {
-	fclose(info.fn);
+	close(info.fn);
 	free(info.input);
 	free(info.buffer);
 	free_dlistint(info.stack);

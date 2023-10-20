@@ -6,10 +6,9 @@
  */
 int get_input(void)
 {
-	int n;
-	size_t len;
+	int n, len;
 
-	n = getline(&info.input, &len, info.fn);
+	n = _getline(&info.input, &len, info.fn);
 
 	if (n == -1)
 		_exitS();

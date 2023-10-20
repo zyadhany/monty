@@ -22,9 +22,9 @@ int main(int argc, char *argv[])
 		_exitS();
 	}
 
-	info.fn = fopen(argv[1], "r");
+	info.fn = open(argv[1], O_RDONLY);
 
-	if (!info.fn)
+	if (info.fn == -1)
 	{
 		_perror("Error: Can't open file ");
 		_perror(argv[1]);
